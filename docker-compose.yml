@@ -1,0 +1,14 @@
+version: '3.8'
+
+services: 
+  app:
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - 5173:5173
+    volumes:
+      - ./:/var/www/html
+      - /var/www/html/node_modules
+    entrypoint: ['pnpm', 'dev', '--host=0.0.0.0']
+
